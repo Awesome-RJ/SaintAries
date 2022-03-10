@@ -35,8 +35,7 @@ async def _(event):
         await event.reply("Give some url")
         return
     sample_url = "https://da.gd/s?url={}".format(input_str)
-    response_api = requests.get(sample_url).text
-    if response_api:
+    if response_api := requests.get(sample_url).text:
         await event.reply(
             "**Shortened url**==> {}\n**Given url**==> {}.".format(
                 response_api, input_str

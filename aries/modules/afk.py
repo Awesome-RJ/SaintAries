@@ -132,7 +132,7 @@ def check_afk(update, context, user_id: int, fst_name: int, userc_id: int):
         since_afk = get_readable_time(
             (time.time() - float(REDIS.get(f"afk_time_{user_id}")))
         )
-        if int(userc_id) == int(user_id):
+        if userc_id == user_id:
             return
         if reason == "none":
             res = "{} is AFK!\nLast seen: {}".format(fst_name, since_afk)
